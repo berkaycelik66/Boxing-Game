@@ -1,13 +1,13 @@
 public class Fighter {
     String name;
-    int damage;
+    int maxDamage;
     int health;
     int weight;
     double dodge;
 
-    public Fighter(String name, int damage, int health, int weight, double dodge) {
+    public Fighter(String name, int maxDamage, int health, int weight, double dodge) {
         this.name = name;
-        this.damage = damage;
+        this.maxDamage = maxDamage;
         this.health = health;
         this.weight = weight;
 
@@ -19,19 +19,20 @@ public class Fighter {
     }
 
     public int hit(Fighter foe) {
+        int damage = (int)(Math.random() * maxDamage) + 1;
 
-        System.out.println(this.name + " attacked " + foe.name + " => Result: " + this.damage + " Damage");
+        System.out.println(this.name + " attacked " + foe.name + " => Result: " + damage + " Damage");
 
         if (foe.isDodge()) {
             System.out.println("*** " + foe.name + " covered the incoming damage.");
             return foe.health;
         }
 
-        if ((foe.health - this.damage) < 0) {
+        if ((foe.health - damage) < 0) {
             return 0;
         }
 
-        return (foe.health - this.damage);
+        return (foe.health - damage);
     }
 
     public boolean isDodge() {
