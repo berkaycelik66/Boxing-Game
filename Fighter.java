@@ -20,10 +20,11 @@ public class Fighter {
 
     public int hit(Fighter foe) {
 
-        System.out.println(this.name + " attacked " + foe.name + "=> Result: " + this.damage + " Damage");
+        System.out.println(this.name + " attacked " + foe.name + " => Result: " + this.damage + " Damage");
 
         if (foe.isDodge()) {
-            System.out.println(foe.name + " covered the incoming damage.");
+            System.out.println("*** " + foe.name + " covered the incoming damage.");
+            return foe.health;
         }
 
         if ((foe.health - this.damage) < 0) {

@@ -15,7 +15,7 @@ public class Match {
         if (isCheck()) {
             int i = 0;
             while (f1.health > 0 && f2.health > 0) {
-                System.out.println("==== ROUND " + (i + 1) + " ====");
+                System.out.println("\n==== ROUND " + (i + 1) + " ====");
                 int chance = Math.round((float) Math.random());
 
                 if (chance == 0) {
@@ -39,8 +39,7 @@ public class Match {
                         break;
                     }
                 }
-                System.out.println(this.f1.name + " Health: " + this.f1.health);
-                System.out.println(this.f2.name + " Health: " + this.f2.health);
+                printScore();
                 i++;
             }
         } else {
@@ -53,17 +52,25 @@ public class Match {
     }
 
     public boolean isWin() {
-        System.out.println();
         if (this.f1.health == 0) {
-            System.out.println(this.f2.name + " WON !");
+            printScore();
+            System.out.println();
+            System.out.println(this.f2.name + " WON THE MATCH !");
             return true;
         }
 
         if (this.f2.health == 0) {
-            System.out.println(this.f1.name + " WON !");
+            printScore();
+            System.out.println();
+            System.out.println(this.f1.name + " WON THE MATCH !");
             return true;
         }
 
         return false;
+    }
+
+    public void printScore(){
+        System.out.println(this.f1.name + " Health: " + this.f1.health);
+        System.out.println(this.f2.name + " Health: " + this.f2.health);
     }
 }
