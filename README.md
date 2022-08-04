@@ -1,4 +1,4 @@
-# Boxing-Game
+# Boxing Game
 
 ### Fighter Class Features:
 - Attributes : name, maxDamage, health, weight, dodgeChance
